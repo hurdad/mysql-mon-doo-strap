@@ -1,0 +1,47 @@
+MySQL Monitor built with DooPHP and Twitter Bootstrap
+
+Supports the graphing of the following MySQL Server Statistics
+
+Questions Rate : Select / Insert / Replace / Update / Delete 
+Select / Sort Rate : Select Scan / Select Ragne / Select Full Join / Select Range Check Select Full Range Join / Sort Scan / Sort Range / Sort Merge Passes
+Connections : Max Connections / Max Used Connections / Process Count / Running Process Count / Connection Rate / Aborted connects Rate / Aborted clients Rate
+Traffic: Sent / Recieved
+Temp Tables : Created Tmp Disk Tables / Created Tmp Tables / Created Tmp Files
+Table Locks: Table locks wait / Table locks immediate
+InnoDB: Buffer Pool Usage ( Total / Used / Read Hit Rate% ) Stats ( Buffer Pool Read Request / Buffer Pool Reads/ Buffer Pool Read Ahead Rnd / Buffer Pool Read Ahead Seq / Buffer Pool Write Request / Buffer Pool Pages Flushed / Buffer Pool Wait Free / Row Lock Waits / Data Reads / Data Writes / Data Fsyncs / Pages Created / Pages Read / Pages Written / Rows Deleted / Rows Inserted / Rows Read / Rows Updated
+
+Requirements:
+
+DooPHP Framework (Included) 
+-http://doophp.com/doc/guide/start/requirement
+
+Twitter Bootstrap (Included)
+jQuery (Included)
+Highcharts (Included)
+
+MySQL Server  
+-Tested on version 5.5
+-Currently collecting and storing stats on same instance
+
+Installation:
+
+Web setup
+- Move dooframework and mon-mysql to your web directory
+
+MySQL Setup
+- With your mysql admin user account:
+
+  Create schema
+mysql -u root -ppassword < mysql-mon.sql
+
+  Add Web user
+mysql -u root -ppassword < mysql-mon-user.sql
+
+Crontab
+- Add the following line to your crontab for 5 minute data points
+*/5 * * * * root cd /path/to/www/mysql-mon/ && php cli.php update_mysql_stats 
+
+Browse with Web Browser:
+
+- http://localhost/mon-mysql/
+

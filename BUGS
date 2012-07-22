@@ -1,0 +1,5 @@
+When any MySQL counter gets reset to zero, the REST routes will fail resulting in empty graphs.
+
+This can be caused by:
+-MySQL service restart
+-Counter rollover

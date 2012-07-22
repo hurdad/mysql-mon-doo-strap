@@ -1,0 +1,6 @@
+- Add MYISAM statistics
+- User defined time windows
+- Dynamic stats aggregtion 
+- Add user authenication
+- Support multipule servers
+- Threshold Alerting
